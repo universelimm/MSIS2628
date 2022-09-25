@@ -1,0 +1,71 @@
+linrongyu@Lins-MacBook-Pro Code Lab % docker build -t test .
+[+] Building 0.5s (10/10) FINISHED                                                                                            
+ => [internal] load build definition from Dockerfile                                                                     0.0s
+ => => transferring dockerfile: 84B                                                                                      0.0s
+ => [internal] load .dockerignore                                                                                        0.0s
+ => => transferring context: 2B                                                                                          0.0s
+ => [internal] load metadata for docker.io/library/python:latest                                                         0.5s
+ => [1/6] FROM docker.io/library/python:latest@sha256:e9c35537103a2801a30b15a77d4a56b35532c964489b125ec1ff24f3d5b53409   0.0s
+ => CACHED [2/6] RUN  apt-get update                                                                                     0.0s
+ => CACHED [3/6] RUN  apt-get install wget                                                                               0.0s
+ => CACHED [4/6] RUN  wget -O company_0.txt https://raw.githubusercontent.com/mschermann/forensic_accounting/master/fb_  0.0s
+ => CACHED [5/6] RUN  grep -E -o '([a-zA-Z]+)\sINC' company_0.txt > company.txt                                          0.0s
+ => CACHED [6/6] RUN  rm company_0.txt                                                                                   0.0s
+ => exporting to image                                                                                                   0.0s
+ => => exporting layers                                                                                                  0.0s
+ => => writing image sha256:f7a2a95c16c6d4857d380f7f1b13319c3451a75b3b2e10aa7059d1da59d3b716                             0.0s
+ => => naming to docker.io/library/test                                                                                  0.0s
+
+Use 'docker scan' to run Snyk tests against images to find vulnerabilities and learn how to fix them
+linrongyu@Lins-MacBook-Pro Code Lab % docker run -dit test
+fd7556fdda62456e7f06acd60da64f92e9c537bb94c44c6374447919b1b5b009
+linrongyu@Lins-MacBook-Pro Code Lab % docker ps
+CONTAINER ID   IMAGE     COMMAND     CREATED         STATUS         PORTS     NAMES
+fd7556fdda62   test      "python3"   3 seconds ago   Up 3 seconds             funny_euler
+linrongyu@Lins-MacBook-Pro Code Lab % docker exec -i fd7556fdda62 bash
+ls
+bin
+boot
+company.txt
+dev
+etc
+home
+lib
+media
+mnt
+opt
+proc
+root
+run
+sbin
+srv
+sys
+tmp
+usr
+var
+cat company.txt
+FACEBOOK INC
+FACEBOOK INC
+FACEBOOK INC
+FACEBOOK INC
+FACEBOOK INC
+FACEBOOK INC
+FACEBOOK INC
+FACEBOOK INC
+FACEBOOK INC
+FACEBOOK INC
+FACEBOOK INC
+FACEBOOK INC
+FACEBOOK INC
+FACEBOOK INC
+FACEBOOK INC
+FACEBOOK INC
+FACEBOOK INC
+FACEBOOK INC
+FACEBOOK INC
+FACEBOOK INC
+FACEBOOK INC
+FACEBOOK INC
+FACEBOOK INC
+exit
+linrongyu@Lins-MacBook-Pro Code Lab % 
