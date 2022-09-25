@@ -1,6 +1,1 @@
-# MSIS2628
-# MSIS2628
-# MSIS2628
-# MSIS2628
-# MSIS2628
-# MSIS2628
+# HW repo for Santa Clara University MSIS2628
