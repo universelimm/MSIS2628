@@ -1,0 +1,59 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2639
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\margl1440\margr1440\vieww20280\viewh11320\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 linrongyu@Lins-MacBook-Pro Code Lab % docker build -t my_jupyter . \
+[+] Building 0.8s (13/13) FINISHED                                                                           \
+ => [internal] load build definition from Dockerfile                                                    0.0s\
+ => => transferring dockerfile: 84B                                                                     0.0s\
+ => [internal] load .dockerignore                                                                       0.0s\
+ => => transferring context: 2B                                                                         0.0s\
+ => [internal] load metadata for docker.io/library/python:3.10.7                                        0.6s\
+ => [1/8] FROM docker.io/library/python:3.10.7@sha256:e9c35537103a2801a30b15a77d4a56b35532c964489b125e  0.0s\
+ => [internal] load build context                                                                       0.0s\
+ => => transferring context: 279B                                                                       0.0s\
+ => CACHED [2/8] RUN pip install jupyter                                                                0.0s\
+ => CACHED [3/8] RUN apt-get install wget                                                               0.0s\
+ => CACHED [4/8] COPY requirements.txt requirements.txt                                                 0.0s\
+ => CACHED [5/8] RUN pip install -r requirements.txt                                                    0.0s\
+ => CACHED [6/8] RUN useradd -ms /bin/bash rongyulin                                                    0.0s\
+ => CACHED [7/8] RUN mkdir -p /home/rongyulin/notebooks                                                 0.0s\
+ => CACHED [8/8] RUN wget -P /home/rongyulin/notebooks https://raw.githubusercontent.com/mschermann/fo  0.0s\
+ => exporting to image                                                                                  0.0s\
+ => => exporting layers                                                                                 0.0s\
+ => => writing image sha256:de24b427ab4e7928c53c70f6f513ad96f1f9c7ec3a148db69868d93fa6e930b4            0.0s\
+ => => naming to docker.io/library/my_jupyter                                                           0.0s\
+\
+Use 'docker scan' to run Snyk tests against images to find vulnerabilities and learn how to fix them\
+linrongyu@Lins-MacBook-Pro Code Lab % docker run -p8888:8888 my_jupyter  \
+[I 00:09:45.802 NotebookApp] Writing notebook server cookie secret to /home/rongyulin/.local/share/jupyter/runtime/notebook_cookie_secret\
+[I 00:09:46.004 NotebookApp] Serving notebooks from local directory: /\
+[I 00:09:46.004 NotebookApp] Jupyter Notebook 6.4.12 is running at:\
+[I 00:09:46.004 NotebookApp] http://cae2b4cd8605:8888/?token=b4dd9a79cf2bc3332cbe97bf66b101154d4169c8bd2c0597\
+[I 00:09:46.004 NotebookApp]  or http://127.0.0.1:8888/?token=b4dd9a79cf2bc3332cbe97bf66b101154d4169c8bd2c0597\
+[I 00:09:46.004 NotebookApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).\
+[W 00:09:46.006 NotebookApp] No web browser found: could not locate runnable browser.\
+[C 00:09:46.006 NotebookApp] \
+    \
+    To access the notebook, open this file in a browser:\
+        file:///home/rongyulin/.local/share/jupyter/runtime/nbserver-7-open.html\
+    Or copy and paste one of these URLs:\
+        http://cae2b4cd8605:8888/?token=b4dd9a79cf2bc3332cbe97bf66b101154d4169c8bd2c0597\
+     or http://127.0.0.1:8888/?token=b4dd9a79cf2bc3332cbe97bf66b101154d4169c8bd2c0597\
+[W 00:10:10.730 NotebookApp] Clearing invalid/expired login cookie username-127-0-0-1-8888\
+[W 00:10:10.732 NotebookApp] Clearing invalid/expired login cookie username-127-0-0-1-8888\
+[W 00:10:10.733 NotebookApp] Forbidden\
+[W 00:10:10.735 NotebookApp] 403 GET /api/terminals?_=1664754385484 (172.17.0.1) 5.920000ms referer=http://127.0.0.1:8888/tree/home/our_user/notebooks\
+[W 00:10:10.735 NotebookApp] Forbidden\
+[W 00:10:10.735 NotebookApp] 403 GET /api/sessions?_=1664754385483 (172.17.0.1) 3.520000ms referer=http://127.0.0.1:8888/tree/home/our_user/notebooks\
+[I 00:10:12.697 NotebookApp] 302 GET /?token=b4dd9a79cf2bc3332cbe97bf66b101154d4169c8bd2c0597 (172.17.0.1) 1.540000ms\
+[I 00:10:17.674 NotebookApp] Writing notebook-signing key to /home/rongyulin/.local/share/jupyter/notebook_secret\
+[W 00:10:17.675 NotebookApp] Notebook home/rongyulin/notebooks/Introduction.ipynb is not trusted\
+[I 00:10:18.558 NotebookApp] Kernel started: bcbe8a2a-9b52-4a94-a803-0a83c5caa929, name: python3\
+[IPKernelApp] ERROR | No such comm target registered: jupyter.widget.control\
+[IPKernelApp] WARNING | No such comm: 54e26251-3cdf-4e53-a83e-fb30c293f11b\
+[I 00:10:21.468 NotebookApp] Starting buffering for bcbe8a2a-9b52-4a94-a803-0a83c5caa929:e04a341925a24af9821dc66affdf3226\
+}
