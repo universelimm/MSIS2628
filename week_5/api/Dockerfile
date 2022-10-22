@@ -1,0 +1,10 @@
+FROM python
+RUN pip install flask
+RUN pip3 install psycopg2
+RUN pip3 install requests
+RUN pip3 install sqlalchemy
+
+VOLUME [ "/app" ]
+WORKDIR /app
+
+EXPOSE 5000

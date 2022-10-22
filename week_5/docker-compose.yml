@@ -23,8 +23,6 @@ services:
       - PGADMIN_DEFAULT_PASSWORD=${PG_ADMIN_PASS}
     ports:
       - "5040:80"
-    volumes:
-      - pgadmin:/var/lib/pgadmin
 
   api:
     build: ./api/
@@ -55,6 +53,3 @@ services:
       - ./consumer/code:/app
     ports:
       - "${CONSUMER_PORT}:${CONSUMER_PORT}"
-
-volumes:
-    pgadmin:
